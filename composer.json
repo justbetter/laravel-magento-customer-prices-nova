@@ -1,0 +1,42 @@
+{
+    "name": "justbetter/laravel-magento-customer-prices-nova",
+    "description": "Nova integration for justbetter/laravel-magento-customer-prices",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Boon",
+            "email": "vincent@justbetter.nl",
+            "role": "Developer"
+        },
+        {
+            "name": "Ramon Rietdijk",
+            "email": "ramon@justbetter.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "justbetter/laravel-magento-customer-prices": "^1.0",
+        "justbetter/nova-error-logger": "^4.0",
+        "laravel/nova": "^4.0",
+        "bolechen/nova-activitylog": "^0.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JustBetter\\MagentoCustomerPricesNova\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JustBetter\\MagentoCustomerPricesNova\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
