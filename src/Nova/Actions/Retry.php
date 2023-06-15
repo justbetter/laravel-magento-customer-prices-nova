@@ -6,6 +6,7 @@ use Illuminate\Support\Collection;
 use JustBetter\MagentoCustomerPrices\Jobs\RetrieveCustomerPriceJob;
 use JustBetter\MagentoCustomerPrices\Models\MagentoCustomerPrice;
 use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Actions\ActionResponse;
 use Laravel\Nova\Fields\ActionFields;
 
 class Retry extends Action
@@ -15,7 +16,7 @@ class Retry extends Action
     public $confirmButtonText = 'Retry';
     public $standalone = true;
 
-    public function handle(ActionFields $fields, Collection $models): array
+    public function handle(ActionFields $fields, Collection $models): ActionResponse
     {
         $skus = MagentoCustomerPrice::query()
             ->where('sync', '=', false)
@@ -33,6 +34,6 @@ class Retry extends Action
             RetrieveCustomerPriceJob::dispatch($sku, true);
         }
 
-        return static::message(__('Retrying failed jobs...'));
+        return ActionResponse::message(__('Retrying failed jobs...'));
     }
 }

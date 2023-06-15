@@ -5,6 +5,7 @@ namespace JustBetter\MagentoCustomerPricesNova\Nova\Actions;
 use Illuminate\Support\Collection;
 use JustBetter\MagentoCustomerPrices\Jobs\RetrieveAllCustomerPricesJob;
 use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Actions\ActionResponse;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -16,11 +17,11 @@ class RetrieveAllCustomerPrices extends Action
     public $confirmButtonText = 'Retrieve';
     public $standalone = true;
 
-    public function handle(ActionFields $fields, Collection $models): array
+    public function handle(ActionFields $fields, Collection $models): ActionResponse
     {
         RetrieveAllCustomerPricesJob::dispatch($fields->force);
 
-        return static::message(__('Retrieving customer prices...'));
+        return ActionResponse::message(__('Retrieving customer prices...'));
     }
 
     public function fields(NovaRequest $request): array
