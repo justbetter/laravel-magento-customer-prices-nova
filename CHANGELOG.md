@@ -1,6 +1,10 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.1...main)
+## [4.2.1](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.2.1) - 2023-06-26
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.0...4.2.1
+
 ## [4.2.0](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.2.0) - 2023-06-22
 
 ### What's Changed
