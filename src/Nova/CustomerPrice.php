@@ -5,7 +5,6 @@ namespace JustBetter\MagentoCustomerPricesNova\Nova;
 use Illuminate\Http\Request;
 use Bolechen\NovaActivitylog\Resources\Activitylog;
 use JustBetter\MagentoCustomerPrices\Models\MagentoCustomerPrice;
-use JustBetter\NovaErrorLogger\Nova\Error;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
@@ -70,8 +69,6 @@ class CustomerPrice extends Resource
                 ->onlyOnDetail(),
 
             MorphMany::make(__('Activity'), 'activities', Activitylog::class),
-
-            MorphMany::make(__('Errors'), 'errors', Error::class),
         ];
     }
 
