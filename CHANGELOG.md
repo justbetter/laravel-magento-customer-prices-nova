@@ -1,6 +1,16 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.1...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.3.0...main)
+## [4.3.0](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.3.0) - 2024-08-06
+
+### What's Changed
+* Make the Nova integration compatible with laravel-magento-customer-prices ^3.0 by @ramonrietdijk in https://github.com/justbetter/laravel-magento-customer-prices-nova/pull/2
+
+### New Contributors
+* @ramonrietdijk made their first contribution in https://github.com/justbetter/laravel-magento-customer-prices-nova/pull/2
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.1...4.3.0
+
 ## [4.2.1](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.2.1) - 2023-06-26
 
 **Full Changelog**: https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.2.0...4.2.1
