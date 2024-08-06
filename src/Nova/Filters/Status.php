@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Builder;
 use Laravel\Nova\Filters\Filter;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Sync extends Filter
+class Status extends Filter
 {
     /** @param Builder $query */
     public function apply(NovaRequest $request, $query, $value): Builder
     {
-        return $query->where('sync', '=', $value);
+        return $query->where($value, '=', true);
     }
 
     public function options(NovaRequest $request): array
     {
         return [
-            (string) __('In sync') => 1,
-            (string) __('Not in sync') => 0,
+            (string) __('To retrieve') => 'retrieve',
+            (string) __('To update') => 'update',
         ];
     }
 }

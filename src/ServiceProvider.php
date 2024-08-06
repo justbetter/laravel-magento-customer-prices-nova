@@ -3,15 +3,17 @@
 namespace JustBetter\MagentoCustomerPricesNova;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use JustBetter\MagentoCustomerPricesNova\Nova\CustomerPrice;
+use JustBetter\MagentoCustomerPricesNova\Nova\CustomerPriceResource;
 use Laravel\Nova\Nova;
 
 class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
-        Nova::resources([
-            CustomerPrice::class,
-        ]);
+        Nova::serving(function (): void {
+            Nova::resources([
+                CustomerPriceResource::class,
+            ]);
+        });
     }
 }

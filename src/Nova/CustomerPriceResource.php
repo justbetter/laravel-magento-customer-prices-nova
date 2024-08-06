@@ -2,10 +2,9 @@
 
 namespace JustBetter\MagentoCustomerPricesNova\Nova;
 
-use Illuminate\Http\Request;
 use Bolechen\NovaActivitylog\Resources\Activitylog;
-use JustBetter\MagentoCustomerPrices\Models\MagentoCustomerPrice;
-use Laravel\Nova\Fields\Badge;
+use Illuminate\Http\Request;
+use JustBetter\MagentoCustomerPrices\Models\CustomerPrice;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
@@ -15,9 +14,9 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
 
-class CustomerPrice extends Resource
+class CustomerPriceResource extends Resource
 {
-    public static $model = MagentoCustomerPrice::class;
+    public static string $model = CustomerPrice::class;
 
     public static $title = 'sku';
 
@@ -26,6 +25,16 @@ class CustomerPrice extends Resource
     public static $search = [
         'sku',
     ];
+
+    public static function label(): string
+    {
+        return __('Customer prices');
+    }
+
+    public static function uriKey(): string
+    {
+        return 'magento-customer-prices';
+    }
 
     public function fields(NovaRequest $request): array
     {
@@ -41,15 +50,13 @@ class CustomerPrice extends Resource
                 ->readonly()
                 ->showOnPreview(),
 
-            Badge::make(__('State'), 'state')
-                ->map([
-                    MagentoCustomerPrice::STATE_IDLE => 'info',
-                    MagentoCustomerPrice::STATE_RETRIEVE => 'success',
-                    MagentoCustomerPrice::STATE_RETRIEVING => 'warning',
-                    MagentoCustomerPrice::STATE_UPDATE => 'success',
-                    MagentoCustomerPrice::STATE_UPDATING => 'warning',
-                    MagentoCustomerPrice::STATE_FAILED => 'danger',
-                ])->showOnPreview(),
+            Boolean::make(__('Retrieve'), 'retrieve')
+                ->help(__('Automatically set to true if this customer price should be retrieved'))
+                ->sortable(),
+
+            Boolean::make(__('Update'), 'update')
+                ->help(__('Automatically set to true if this customer price should be updated in Magento'))
+                ->sortable(),
 
             DateTime::make(__('Last retrieved'), 'last_retrieved')
                 ->readonly()
@@ -61,7 +68,6 @@ class CustomerPrice extends Resource
 
             DateTime::make(__('Last failed'), 'last_failed')
                 ->readonly()
-                ->help(__('Max allowed failures: ' . config('magento-customer-prices.fail_count')))
                 ->sortable(),
 
             Number::make(__('Fail count'), 'fail_count')
@@ -86,7 +92,8 @@ class CustomerPrice extends Resource
     {
         return [
             Filters\Failed::make(),
-            Filters\State::make(),
+            Filters\Product::make(),
+            Filters\Status::make(),
             Filters\Sync::make(),
         ];
     }
