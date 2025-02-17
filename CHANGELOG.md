@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.3.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.4.0...main)
+## [4.4.0](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.4.0) - 2025-02-17
+
+### What's Changed
+* Laravel 12 / Nova 5 support by @VincentBean in https://github.com/justbetter/laravel-magento-customer-prices-nova/pull/3
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-magento-customer-prices-nova/compare/4.3.0...4.4.0
+
 ## [4.3.0](https://github.com/justbetter/laravel-magento-customer-prices-nova/releases/tag/4.3.0) - 2024-08-06
 
 ### What's Changed
