@@ -18,7 +18,7 @@
     "require": {
         "php": "^8.3",
         "bolechen/nova-activitylog": "^0.5.0",
-        "justbetter/laravel-magento-customer-prices": "^3.2.4",
+        "justbetter/laravel-magento-customer-prices": "^3.2.5",
         "laravel/framework": "^11.0|^12.0",
         "laravel/nova": "^5.0"
     },
