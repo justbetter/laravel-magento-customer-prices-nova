@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoCustomerPricesNova\Nova\Actions;
 
 use Illuminate\Support\Carbon;
@@ -40,6 +42,7 @@ class RetrieveAllCustomerPrices extends Action
         return ActionResponse::message(__('Retrieving...'));
     }
 
+    #[\Override]
     public function fields(NovaRequest $request): array
     {
         return [
