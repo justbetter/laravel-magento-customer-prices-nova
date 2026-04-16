@@ -39,9 +39,11 @@
     "scripts": {
         "analyse": "phpstan --memory-limit=256M",
         "style": "pint --test",
+        "rector": "rector process --dry-run",
         "quality": [
             "@style",
-            "@analyse"
+            "@analyse",
+            "@rector"
         ]
     },
     "extra": {
