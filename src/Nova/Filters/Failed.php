@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoCustomerPricesNova\Nova\Filters;
 
 use Illuminate\Contracts\Database\Eloquent\Builder as EloquentBuilder;
@@ -15,10 +17,11 @@ class Failed extends Filter
         return match ($value) {
             'day' => $query->whereDate('last_failed', '>=', now()->startOfDay()),
             'week' => $query->whereDate('last_failed', '>=', now()->subWeek()->startOfDay()),
-            default => $query->where('last_failed', '!=', null),
+            default => $query->where('last_failed', '!='),
         };
     }
 
+    #[\Override]
     public function options(NovaRequest $request): array
     {
         return [

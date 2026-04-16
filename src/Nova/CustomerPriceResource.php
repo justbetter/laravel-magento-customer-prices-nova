@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\MagentoCustomerPricesNova\Nova;
 
 use Bolechen\NovaActivitylog\Resources\Activitylog;
@@ -26,11 +28,13 @@ class CustomerPriceResource extends Resource
         'sku',
     ];
 
+    #[\Override]
     public static function label(): string
     {
         return __('Customer prices');
     }
 
+    #[\Override]
     public static function uriKey(): string
     {
         return 'magento-customer-prices';
@@ -78,6 +82,7 @@ class CustomerPriceResource extends Resource
         ];
     }
 
+    #[\Override]
     public function actions(NovaRequest $request): array
     {
         return [
@@ -88,6 +93,7 @@ class CustomerPriceResource extends Resource
         ];
     }
 
+    #[\Override]
     public function filters(NovaRequest $request): array
     {
         return [
@@ -98,11 +104,13 @@ class CustomerPriceResource extends Resource
         ];
     }
 
+    #[\Override]
     public static function authorizedToCreate(Request $request): bool
     {
         return false;
     }
 
+    #[\Override]
     public function authorizedToReplicate(Request $request): bool
     {
         return false;
